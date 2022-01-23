@@ -31,7 +31,7 @@
     <br/>
     {% for post in posts %}
 
-        {{ post }} <br/>
+        <a href="{% url 'post-details' post.pk %}">{{post.title}}</a> <br/>
 
     {% endfor %}
 
