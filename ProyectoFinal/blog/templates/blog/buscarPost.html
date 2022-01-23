@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+
+{% load static %}
+
+{% block busqueda %}
+<form action="blog/buscar/" method="GET">
+
+    <input type="text" name='post' id='title'>
+
+    <input type="submit" name='Buscar'>
+
+
+</form>
+
+{% endblock busqueda %}

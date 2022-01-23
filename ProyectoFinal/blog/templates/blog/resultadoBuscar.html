@@ -1,0 +1,16 @@
+{% extends 'blog/base.html' %}
+
+{% load static %}
+
+{% block pagecontent %} 
+
+{% if post %}
+
+<ul>
+
+{% for titulo in post}
+    <li>{% post.title %}</li>
+
+</ul>
+
+{% endblock pagecontent %}
