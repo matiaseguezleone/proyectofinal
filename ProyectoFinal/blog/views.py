@@ -28,7 +28,7 @@ def creaPost(request):
                 title = informacion['title'],
                 content = informacion['content'],
                 # thumbnail = informacion['thumbnail'],
-                created_date = datetime.now
+                # created_date = datetime.now
 
             )
             
@@ -48,16 +48,14 @@ def buscarPost(request):
 
 def buscar(request):
 
-    if request.GET['title']:
+    if request.method == 'POST':
 
-        title = request.GET['title']
-        post = Post.objets.filter(post__icontains=title)
+        searched = request.POST['searched']
+        posts = Post.objects.filter(title__contains=searched)
 
-        return render(request, 'blog/resultadoBuscar.html', {'titulo':title, 'post':post})
+        return render(request, 'blog/resultadoBuscar.html', {'searched':searched, 'posts':posts})
 
     else:
 
-        response = 'No enviaste datos'
-
-    return HttpResponse(response)
+        return render(request, 'blog/resultadoBuscar.html', {})
 

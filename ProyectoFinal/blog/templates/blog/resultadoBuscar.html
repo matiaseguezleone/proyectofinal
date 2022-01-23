@@ -2,15 +2,44 @@
 
 {% load static %}
 
+{% block navbar %}
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#!">Blog de Deportes</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'inicio' %}">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'creapost' %}">Crear Post</a></li>
+                    </ul>
+                </div>
+                
+    </div>
+</nav>
+
+{% endblock navbar %}
+
 {% block pagecontent %} 
 
-{% if post %}
+{% if searched %}
 
-<ul>
+    <h1>Buscaste el post... {{searched}}</h1> 
+    <br/>
+    <h3>Los resultados son:</h3>
+    <br/>
+    {% for post in posts %}
 
-{% for titulo in post}
-    <li>{% post.title %}</li>
+        {{ post }} <br/>
 
-</ul>
+    {% endfor %}
+
+
+{% else %}
+
+    <h1>No buscaste nada! Intenta de nuevo</h1>
+
+{% endif %}
 
 {% endblock pagecontent %}
