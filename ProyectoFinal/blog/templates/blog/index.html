@@ -36,8 +36,14 @@
 {% endblock navbar %}
 
 {% block pagecontent %}
+<ul>
+{% for post in object_list %}
 
-
+<li><a href="{% url 'post-details' post.pk %}">{{post.title}}</a> <br/> 
+    
+</li>
+{% endfor %}
+</ul>
 <!-- Page content-->
 <div class="container">
     <div class="row">

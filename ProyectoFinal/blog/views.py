@@ -1,13 +1,17 @@
-from django.http import HttpResponse
 from django.shortcuts import render
 from blog.forms import postForm
 from blog.models import Post
-from datetime import datetime
+from django.views.generic import ListView, DetailView
 
 # Create your views here.
 
-def inicio (request):
-    return render(request, 'blog/index.html')
+class Inicio (ListView):
+    model = Post
+    template_name = 'blog/index.html'
+
+class postDetails(DetailView):
+    model = Post
+    template_name = 'blog/post_details.html'
 
 def about(request):
     return render(request, 'blog/about.html')
