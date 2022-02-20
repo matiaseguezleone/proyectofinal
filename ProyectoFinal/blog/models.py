@@ -19,7 +19,7 @@ class Post(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
     slug = models.SlugField(max_length=200, null=True, unique=True)
-    thumbnail = models.ImageField(blank=True)
+    thumbnail = models.ImageField(upload_to='media/')
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
     # author = models.ForeignKey(User, on_delete=models.CASCADE)
