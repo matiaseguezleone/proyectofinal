@@ -32,19 +32,9 @@
 {% block pagecontent %}
 
 <body>
-    <form action="" method = 'POST'>
+    
+    <h3>Deslogueado con exito, volver a <a href="{% url 'inicio' %}">inicio</a></h3>
 
-        {% csrf_token %}
-
-        {{form.as_p}}
-
-        <button type="submit">Iniciar Sesion</button>
-
-        <p>Si no tenes usuario, registrate haciendo click <a href="{% url 'signup' %}"> aca</a></p>
-
-
-    </form>
 </body>
-
 
 {% endblock pagecontent %}
