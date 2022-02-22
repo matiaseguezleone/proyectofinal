@@ -14,6 +14,10 @@ git clone https://github.com/matiaseguezleone/proyectofinal.git
 
 pip install django=4.0
 
+pip install Pillow
+
+pip install django-ckeditor
+
 cd proyectofinal/ProyectoFinal
 
 ```
@@ -33,6 +37,10 @@ git clone https://github.com/matiaseguezleone/proyectofinal.git
 
 pip install django=4.0
 
+pip install Pillow
+
+pip install django-ckeditor
+
 cd proyectofinal/ProyectoFinal
 
 ```
@@ -43,3 +51,4 @@ python manage.py runserver
 En el browser: http://127.0.0.1:8000/blog/
 
 ### Realizado por: Matias Eguez Leone
+
