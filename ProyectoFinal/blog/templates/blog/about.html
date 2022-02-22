@@ -15,6 +15,7 @@
                         {% if user.is_authenticated %}
 
                         <li class="nav-item"><a class="nav-link" href="{% url 'creapost' %}">Crear Post</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'edit_profile' %}">Editar Perfil</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Cerrar sesion</a></li>
 
                         {% else %}
@@ -53,19 +54,47 @@
     <div class="row">
       <!-- Team Member 1 -->
       <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card border-0 shadow">
+        <div class="card border-0 shadow container-fluid">
           <img src="https://media-exp1.licdn.com/dms/image/C4D03AQHQUWSx43giTg/profile-displayphoto-shrink_800_800/0/1550683938508?e=1650499200&v=beta&t=EAbGHt5Nqaw4iy2-OIofuNBXyt0vaRlQXnrbEDDzAwc" class="card-img-top" alt="...">
           <div class="card-body text-center">
             <h5 class="card-title mb-0">Matias Eguez Leone</h5>
             <div class="card-text text-black-50">Cloud Engineer Jr</div>
           </div>
+          <div class="d-flex flex-row-reverse">
+
+          </div>
+
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          Soy Matias, tengo 26 años y actualmente me desempeño como Cloud Engineer, administrando la infraestructura Cloud con AWS de nuestros productos. <br> <br>
+          Me encontre con la necesidad de realizar el curso de Python ya que en el trabajo utilizamos mucho el concepto de Infraestructura como codigo, y por ende necesitaba tener una
+        base mas solida en lo que a programacion se refiere. <br> <br>
+        La idea del proyecto se basa en mi gusto por los deportes en general, principalmente tenis y futbol, deportes que practico actualmente. <br> <br>
+        El proyecto fue desarrollado de manera individual.
         </div>
       </div>
 
     </div>
+
+
     <!-- /.row -->
   
   </div>
   <!-- /.container -->
+
+<!-- Soy Matias, tengo 26 años y actualmente me desempeño como Cloud Engineer, administrando la infraestructura Cloud en AwS de nuestros productos. <br>
+
+Me encontre con la necesidad de realizar el curso de Python ya que en el trabajo utilizamos mucho el concepto de Infraestructura como codigo, y por ende necesitaba tener una
+base mas solida en lo que a programacion se refiere. <br>
+
+
+La idea del proyecto se basa en mi gusto por los deportes en general, principalmente tenis y futbol, deportes que practico actualmente. <br>
+
+El proyecto fue desarrollado de manera individual. <br> -->
+
+
+
 
 {% endblock enconstruccion %}

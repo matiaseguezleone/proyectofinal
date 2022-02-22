@@ -22,7 +22,7 @@ class Post(models.Model):
     # content = models.TextField()
     content = RichTextField(blank = True, null = True)
     slug = models.SlugField(max_length=200, null = True, unique=True)
-    thumbnail = models.ImageField(blank=True)
+    thumbnail = models.ImageField(null = True, blank=True, upload_to = "images/")
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
     # author = models.ForeignKey(User, on_delete=models.CASCADE)

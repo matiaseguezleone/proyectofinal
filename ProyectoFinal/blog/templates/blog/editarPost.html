@@ -17,6 +17,7 @@
                         {% if user.is_authenticated %}
 
                         <li class="nav-item"><a class="nav-link" href="{% url 'creapost' %}">Crear Post</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'edit_profile' %}">Editar Perfil</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Cerrar sesion</a></li>
 
                         {% else %}
@@ -41,27 +42,33 @@
 
 {% endblock navbar %}
 
+
+
+
 {% block crearpost %}
 
 {% if user.is_authenticated %}
     <h1>Editar post</h1>
+    <div class = "form-group">
+        <form action="" method='POST'>{% csrf_token %}
 
-    <form action="" method='POST'>{% csrf_token %}
-
-        <table>
-            {{formularioPost.media}}
-            {{formularioPost|crispy}}
-
-        </table>
-
-        <!-- <input type="submit", value='Enviar'> -->
-        <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
+            <table>
                 
-                {{form|crispy}}
-                <button type="submit">Actualizar Post</button>
-            </form>
+                {{formularioPost.media}}
+                {{formularioPost|crispy}}
 
+            </table>
+        
+
+            <!-- <input type="submit", value='Enviar'> -->
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                    
+                    {{form|crispy}}
+                    <button type="submit">Actualizar Post</button>
+                    
+                </form>
+    </div>
 {% else %}
     
     <h3>Tenes que iniciar sesion para poder editar un post!</h3>

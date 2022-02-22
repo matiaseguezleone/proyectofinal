@@ -39,24 +39,27 @@ def creaPost(request):
     
     if request.method == 'POST':
         
-        formularioPost = postForm(request.POST)
+        formularioPost = postForm(request.POST, request.FILES)
 
         print(formularioPost)
 
         if formularioPost.is_valid:
-            
-            informacion = formularioPost.cleaned_data
 
-            post = Post (
-                title = informacion['title'],
-                content = informacion['content'],
-                # thumbnail = informacion['thumbnail'],
-                # created_date = datetime.now
+            
+            # informacion = formularioPost.cleaned_data
+
+            # post = Post (
+            #     title = informacion['title'],
+            #     content = informacion['content'],
+            #     # thumbnail = informacion['thumbnail'],
+            #     # created_date = datetime.now
                 
 
-            )
+            # )
             
-            post.save()
+            # post.save()
+
+            formularioPost.save()
 
             return render(request, 'blog/index.html')
 
