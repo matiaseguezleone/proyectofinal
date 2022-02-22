@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',
     'crispy_forms',
+    'login',
+    'ckeditor',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -134,5 +136,5 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
     )
 
-LOGIN_URL = 'blog/login'
-LOGIN_REDIRECT_URL = 'blog/inicio'
+LOGIN_REDIRECT_URL = 'inicio'
+LOGOUT_REDIRECT_URL = 'inicio'
