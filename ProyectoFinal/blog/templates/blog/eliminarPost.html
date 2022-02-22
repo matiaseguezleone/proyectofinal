@@ -32,21 +32,16 @@
 {% endblock navbar %}
 
 {% block crearpost %}
-<h1>Crea tu post</h1>
+<h1>Borrar post</h1>
 
 <form action="" method='POST'>{% csrf_token %}
 
-    <table>
-
-        {{formularioPost|crispy}}
-
-    </table>
 
     <!-- <input type="submit", value='Enviar'> -->
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
-            {{form|crispy}}
-            <button type="submit">Crear Post</button>
+            <strong>Estas seguro que queres borrar el post?</strong><br/><br/>
+            <button type="submit">Borrar Post</button>
         </form>
 
 </form>

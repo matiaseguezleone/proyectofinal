@@ -1,8 +1,10 @@
+from ast import Delete
 from operator import is_not
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
 from blog.forms import postForm
 from blog.models import Post
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, UpdateView, DeleteView
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, logout, authenticate
 
@@ -16,6 +18,19 @@ class Inicio (ListView):
 class postDetails(DetailView):
     model = Post
     template_name = 'blog/post_details.html'
+    slug_field = 'slug'
+    slug_url_kwarg = 'slug'
+
+class updatePost(UpdateView):
+    model = Post
+    template_name = 'editarPost.html'
+    fields = ['title', 'content']
+
+class deletePost(DeleteView):
+    model = Post
+    template_name = 'eliminarPost.html'
+    success_url = reverse_lazy('inicio')
+
 
 def about(request):
     return render(request, 'blog/about.html')
@@ -35,8 +50,9 @@ def creaPost(request):
             post = Post (
                 title = informacion['title'],
                 content = informacion['content'],
-                thumbnail = informacion['thumbnail'],
+                # thumbnail = informacion['thumbnail'],
                 # created_date = datetime.now
+                
 
             )
             
@@ -67,53 +83,7 @@ def buscar(request):
 
         return render(request, 'blog/resultadoBuscar.html', {})
 
-def login_request(request):
 
-    if request.method == 'POST':
-        form = AuthenticationForm(request, data = request.POST)
-
-        if form.is_valid():
-            user = form.cleaned_data.get('username')
-            password = form.cleaned_data.get('password')
-
-            user = authenticate(username = user, password = password)
-
-            if user is not None:
-                login (request, user)
-
-                return render(request, 'blog/index.html')
-
-            else: 
-
-                return render(request, 'blog/index.html', {'mensaje': f'Datos incorrectos'})
-
-        else:
-
-            return render (request, 'blog/index.html', {'mensaje': f'Formulario erroneo'})
-
-    form = AuthenticationForm()
-
-    return render (request, 'blog/login.html', {'form':form})
-
-
-def register(request):
-    
-    if request.method == 'POST':
-
-        form = UserCreationForm(request.POST)
-
-        if form.is_valid():
-            username = form.cleaned_data['username']
-
-            form.save()
-
-            return render (request, 'blog/index.html', {'mensaje': 'Usuario creado!'})
-
-    else:
-
-        form = UserCreationForm()
-
-    return render(request,'blog/signup.html', {'form':form})
 
 
         

@@ -27,7 +27,7 @@
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'inicio' %}">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'creapost' %}">Crear Post</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+                        
                     </ul>
                     <form class="d-flex" method="POST" action="{% url 'resultadoBusqueda' %}">
 
@@ -58,6 +58,8 @@
         <h2 class="card-title h4">{{post.title}}</h2>
         <p class="card-text">{{post.content|truncatechars:100}}</p>
         <a class="btn btn-primary" href="{% url 'post-details' post.slug  %}">Mas info →</a>
+        <a class="btn btn-primary" href="{% url 'editarPost' post.slug  %}">Editar post</a>
+        <a class="btn btn-primary" href="{% url 'borrarPost' post.slug  %}">Borrar post</a>
     </div>
 </div> 
 </div>
