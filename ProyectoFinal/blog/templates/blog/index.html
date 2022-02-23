@@ -67,7 +67,11 @@
     <div class="row">
         <div class="col-lg-8">
 <div class="card mb-4">
+    {%if post.thumbnail %}
     <a href="#!"></a><img class="card-img-top" src="{{post.thumbnail.url}}" alt="..." /></a>
+    {% else %}
+    <a href="#!"></a><img class="card-img-top" src="" alt="..." /></a>
+    {% endif %}
     <div class="card-body">
         <div class="small text-muted">{{post.created_date}}</div>
         <h2 class="card-title h4">{{post.title}}</h2>
